@@ -3,6 +3,8 @@ on:
     types: [assigned, opened, synchronize, reopened, edited]
   pull_request_review_comment:
     types: [created, edited, deleted]
+  pull_request_review:
+    types: [created, edited, deleted]
 
 jobs:
   hello_world_job:
