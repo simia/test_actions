@@ -12,6 +12,11 @@ jobs:
     name: test
     if: ${{ github.event.issue.pull_request || github.event.pull_request}}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:      
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: test
       - name: test1
         id: test1
         uses: simia/pr-content-validation@v1.1
