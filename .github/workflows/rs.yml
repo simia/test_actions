@@ -13,6 +13,3 @@ jobs:
         uses: simia/pr-content-validation@v1.1
         with:
           relese-notes-ignore-pattern: 'TEST1'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.test1.outputs.time }}"
