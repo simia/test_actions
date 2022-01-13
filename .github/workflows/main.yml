@@ -1,10 +1,16 @@
 on: 
   pull_request:
     types: [assigned, opened, synchronize, reopened, edited]
+  pull_request_review_comment:
+    types: [created, edited, deleted]
+  issue_comment:
+    types: [created, edited, deleted]
+
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
     name: test
+    if: ${{ github.event.issue.pull_request || github.event.pull_request}}
     steps:
       - name: test1
         id: test1
