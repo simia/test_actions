@@ -1,8 +1,4 @@
-on: 
-  pull_request:
-    types: [assigned, opened, synchronize, reopened, edited]
-  pull_request_review_comment:
-    types: [created, edited, deleted]
+on:
   pull_request_review:
     types: [created, edited, deleted]
 
