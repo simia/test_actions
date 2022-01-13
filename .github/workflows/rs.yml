@@ -12,4 +12,4 @@ jobs:
         id: test1
         uses: simia/pr-content-validation@v1.1
         with:
-          relese-notes-ignore-pattern: 'TEST1'
+          relese-notes-ignore-pattern: '!RS'
