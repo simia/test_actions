@@ -1,6 +1,7 @@
 on: 
-  ["issue_comment"]  
-
+  issue_comment:
+    types: [created, deleted, edited]
+    
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
