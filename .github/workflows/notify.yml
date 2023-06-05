@@ -15,18 +15,19 @@ jobs:
         uses: actions/github-script@v5
         with:
           script: |
-            const issue = await github.issues.get({
+            const { data: issue } = await github.rest.issues.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number
             });
+
             return {
-              hasBugLabel: issue.data.labels.some(label => label.name === 'bug'),
-              hasFeatureLabel: issue.data.labels.some(label => label.name === 'feature')
+              hasSupportLabel: issue.data.labels.some(label => label.name === 'support'),
+              
             }
 
       - name: Notify team
-        if: steps.check_labels.outputs.hasBugLabel || steps.check_labels.outputs.hasFeatureLabel
+        if: steps.check_labels.outputs.hasSupportLabel
         uses: actions/github-script@v5
         with:
           script: |
@@ -42,13 +43,14 @@ jobs:
             const teamSlug = 'your-team-slug'; // Replace with the slug of your team
             const notificationMessage = `The issue "${issueTitle}" (${issueUrl}) with labels: ${issueLabels} has been closed.`;
 
-            const usersToNotify = ['simia'];
-
-            for (const user of usersToNotify) {
-              await github.issues.createComment({
-                ...context.repo,
-                issue_number: context.issue.number,
-                body: `@${user} ${notificationMessage}`
-              });
-            }
+            users=("simia")  # Replace with the GitHub usernames of the users to notify
+            notification_message="The issue \"$issue_title\" ($issue_url) with labels: $issue_labels has been closed."
+          
+            for user in "${users[@]}"; do
+              curl -sSL -X POST \
+                -H "Authorization: token $GITHUB_TOKEN" \
+                -H "Accept: application/vnd.github.v3+json" \
+                -d "{\"body\": \"$notification_message\"}" \
+                "https://api.github.com/repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/comments" > /dev/null
+            done
 
