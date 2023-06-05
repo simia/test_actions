@@ -1,0 +1,43 @@
+name: Notify on Closed Issue
+
+on:
+  issues:
+    types:
+      - closed
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check issue labels
+        id: check_labels
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const issue = await github.issues.get(context.repo, { issue_number: context.issue.number });
+            return {
+              hasSupportLabel: issue.data.labels.some(label => label.name === 'support')
+            }
+
+      - name: Notify users
+        if: steps.check_labels.outputs.hasSupportLabel
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const issue = await github.issues.get(context.repo, { issue_number: context.issue.number });
+            const issueUrl = issue.data.html_url;
+            const issueTitle = issue.data.title;
+            const issueLabels = issue.data.labels.map(label => label.name).join(', ');
+
+            const usersToNotify = ['simia_dei'];
+
+            const notificationMessage = `The issue "${issueTitle}" (${issueUrl}) with labels: ${issueLabels} has been closed.`;
+
+            for (const user of usersToNotify) {
+              await github.issues.createComment({
+                ...context.repo,
+                issue_number: context.issue.number,
+                body: `@${user} ${notificationMessage}`
+              });
+            }
