@@ -15,24 +15,34 @@ jobs:
         uses: actions/github-script@v5
         with:
           script: |
-            const issue = await github.issues.get(context.repo, { issue_number: context.issue.number });
+            const issue = await github.issues.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number
+            });
             return {
-              hasSupportLabel: issue.data.labels.some(label => label.name === 'support')
+              hasBugLabel: issue.data.labels.some(label => label.name === 'bug'),
+              hasFeatureLabel: issue.data.labels.some(label => label.name === 'feature')
             }
 
-      - name: Notify users
-        if: steps.check_labels.outputs.hasSupportLabel
+      - name: Notify team
+        if: steps.check_labels.outputs.hasBugLabel || steps.check_labels.outputs.hasFeatureLabel
         uses: actions/github-script@v5
         with:
           script: |
-            const issue = await github.issues.get(context.repo, { issue_number: context.issue.number });
+            const issue = await github.issues.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number
+            });
             const issueUrl = issue.data.html_url;
             const issueTitle = issue.data.title;
             const issueLabels = issue.data.labels.map(label => label.name).join(', ');
 
-            const usersToNotify = ['simia'];
-
+            const teamSlug = 'your-team-slug'; // Replace with the slug of your team
             const notificationMessage = `The issue "${issueTitle}" (${issueUrl}) with labels: ${issueLabels} has been closed.`;
+
+            const usersToNotify = ['simia'];
 
             for (const user of usersToNotify) {
               await github.issues.createComment({
@@ -41,3 +51,4 @@ jobs:
                 body: `@${user} ${notificationMessage}`
               });
             }
+
