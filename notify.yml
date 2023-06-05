@@ -30,7 +30,7 @@ jobs:
             const issueTitle = issue.data.title;
             const issueLabels = issue.data.labels.map(label => label.name).join(', ');
 
-            const usersToNotify = ['simia_dei'];
+            const usersToNotify = ['simia'];
 
             const notificationMessage = `The issue "${issueTitle}" (${issueUrl}) with labels: ${issueLabels} has been closed.`;
 
