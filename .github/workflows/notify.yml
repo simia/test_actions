@@ -9,7 +9,7 @@ jobs:
   issue_closed:
     runs-on: ubuntu-latest
     if: |
-      contains( github.event.issue.labels.*.name, 'My Label')
+      contains( github.event.issue.labels.*.name, 'support')
     steps:
       - name: Add comment
         uses: peter-evans/create-or-update-comment@542d5c2467125bf0a74bd75f1ec2cf9b7eda44bb
