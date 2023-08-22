@@ -4,14 +4,33 @@ title: "Prepare Release <Version>"
 labels: []
 projects: []
 body:
-  - type: textarea
-    id: what-happened
+  - type: input
+    id: release-date
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
+      label: Planned Date
+    validations:
+      required: true
+  - type: input
+    id: responsible
+    attributes:
+      label: Release Captain
+    validations:
+      required: true
+  - type: textarea
+    id: todolist
+    attributes:
+      label: To Do
       value: "
-        - [ ] Bump version to <Version>
+        - [ ] Bump version 
+        - [ ] Bump TeamCity version numbers 
+        - [ ] Build https://teamcity-deploy.voluead.volue.com/buildConfiguration
+        - [ ] Pin & tag
+        - [ ] Install on test servers
+        - [ ] Smoke test
+        - [ ] Publish to [Sharepoint](https://volue.sharepoint.com/:f:/r/sites/SmartEnergyRD4543/Delte%20dokumenter/Release%20management/Distribution_Artifacts/Official_Releases/SeparateReleases/Mesh/)
+        - [ ] Create patch note PDF @raos-tw
+        - [ ] Check if new model should be included 
+        - [ ] [Announce](https://teams.microsoft.com/l/message/19:MnuQdrGhFqaQjTZe3gtV6HEj_qSZRVR-SMyEx5lpezs1@thread.tacv2/1679916139303?tenantId=9ce76d42-5ecb-4d8f-939b-a462ad28cf34&groupId=66703af7-8520-4e05-897e-f4a8f34819e3&parentMessageId=1679916139303&teamName=Energy%20-%20Mesh&channelName=General&createdTime=1679916139303&allowXTenantAccess=false)
         "
     validations:
       required: true
