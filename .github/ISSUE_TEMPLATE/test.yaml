@@ -1,6 +1,6 @@
 name: Release Preparation
 description: Prepare Mesh Release
-title: !join [Prepare Release, *contact]
+title: !join [Prepare Release, *body.contact]
 labels: ["bug", "triage"]
 projects: ["octo-org/1", "octo-org/44"]
 assignees:
