@@ -1,21 +1,29 @@
 name: Release Preparation
 description: Prepare Mesh Release
-
-labels: ["bug", "triage"]
-projects: ["octo-org/1", "octo-org/44"]
-assignees:
-  - octocat
-body: &body
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for taking the time to fill out this bug report!
+title: "Prepare Release <Version>"
+labels: []
+projects: []
+body:
   - type: input
     id: contact
     attributes:
       label: Contact Details
       description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
+      value:
+      "- [x] Bump version to 2.9.0
+- [x] Bump TeamCity version numbers to 2.9.0
+- [x] Build https://teamcity-deploy.voluead.volue.com/buildConfiguration/Mesh_Releases_Mesh29/636638
+- [x] Pin & tag
+- [x] Install on `tdtrhopttrunka3.voluead.volue.com`
+- [x] Install on `tdtrhopttrunka4.voluead.volue.com`
+- [x] Install on `tdtrhsmg125ha2.voluead.volue.com`
+- [x] Install on `tdtrhsmg126a2.voluead.volue.com`
+- [x] Install on `tdtrhopt111A.voluead.volue.com`
+- [x] Smoke test
+- [x] Publish to https://volue.sharepoint.com/:f:/r/sites/SmartEnergyRD4543/Delte%20dokumenter/Release%20management/Distribution_Artifacts/Official_Releases/SeparateReleases/Mesh/2.9
+- [x] Create patch note PDF @raos-tw
+- [x] Check if new model should be included ...
+- [x] [Announce](https://teams.microsoft.com/l/message/19:MnuQdrGhFqaQjTZe3gtV6HEj_qSZRVR-SMyEx5lpezs1@thread.tacv2/1679916139303?tenantId=9ce76d42-5ecb-4d8f-939b-a462ad28cf34&groupId=66703af7-8520-4e05-897e-f4a8f34819e3&parentMessageId=1679916139303&teamName=Energy%20-%20Mesh&channelName=General&createdTime=1679916139303&allowXTenantAccess=false)" 
     validations:
       required: false
   - type: textarea
@@ -38,16 +46,6 @@ body: &body
       default: 0
     validations:
       required: true
-  - type: dropdown
-    id: browsers
-    attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
   - type: textarea
     id: logs
     attributes:
@@ -62,5 +60,3 @@ body: &body
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
-
-title: *body.contact
