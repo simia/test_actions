@@ -13,7 +13,6 @@ body:
       value: "
         - [ ] Bump version to <Version>
         "
-      render: markdown
     validations:
       required: true
   
