@@ -9,7 +9,16 @@ body:
     attributes:
       label: Contact Details
       description: How can we get in touch with you if we need more info?
-      placeholder: "- [x] Bump version to 2.9.0
+      placeholder: ""
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "- [x] Bump version to 2.9.0
 - [x] Bump TeamCity version numbers to 2.9.0
 - [x] Build https://teamcity-deploy.voluead.volue.com/buildConfiguration/Mesh_Releases_Mesh29/636638
 - [x] Pin & tag
@@ -23,15 +32,6 @@ body:
 - [x] Create patch note PDF @raos-tw
 - [x] Check if new model should be included ...
 - [x] [Announce](https://teams.microsoft.com/l/message/19:MnuQdrGhFqaQjTZe3gtV6HEj_qSZRVR-SMyEx5lpezs1@thread.tacv2/1679916139303?tenantId=9ce76d42-5ecb-4d8f-939b-a462ad28cf34&groupId=66703af7-8520-4e05-897e-f4a8f34819e3&parentMessageId=1679916139303&teamName=Energy%20-%20Mesh&channelName=General&createdTime=1679916139303&allowXTenantAccess=false)"
-    validations:
-      required: false
-  - type: textarea
-    id: what-happened
-    attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
     validations:
       required: true
   - type: dropdown
