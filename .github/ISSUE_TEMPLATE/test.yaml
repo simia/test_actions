@@ -1,6 +1,6 @@
 name: Release Preparation
 description: Prepare Mesh Release
-title: "Prepare Release *body.contact"
+
 labels: ["bug", "triage"]
 projects: ["octo-org/1", "octo-org/44"]
 assignees:
@@ -62,3 +62,5 @@ body:
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
+
+title: *contact
