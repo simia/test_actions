@@ -18,6 +18,7 @@ body:
       label: What happened?
       description: Also tell us, what did you expect to happen?
       placeholder: Tell us what you see!
+      render: markdown
       value: "- [x] Bump version to 2.9.0
 - [x] Bump TeamCity version numbers to 2.9.0
 - [x] Build https://teamcity-deploy.voluead.volue.com/buildConfiguration/Mesh_Releases_Mesh29/636638
