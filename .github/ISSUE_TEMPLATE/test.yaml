@@ -11,6 +11,12 @@ body:
     validations:
       required: true
   - type: input
+    id: version
+    attributes:
+      label: Version Number
+    validations:
+      required: true
+  - type: input
     id: responsible
     attributes:
       label: Release Captain
