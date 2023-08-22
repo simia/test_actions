@@ -11,8 +11,8 @@ body:
       description: Also tell us, what did you expect to happen?
       placeholder: Tell us what you see!
       render: markdown
-      value: |
-        - [x] Bump version to <Version>
+      value:
+        - [ ] Bump version to <Version>
     validations:
       required: true
   
