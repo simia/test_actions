@@ -20,7 +20,7 @@ body:
     id: todolist
     attributes:
       label: To Do
-      value: "
+      value: |
         - [ ] Bump version 
         - [ ] Bump TeamCity version numbers 
         - [ ] Build https://teamcity-deploy.voluead.volue.com/buildConfiguration
@@ -31,7 +31,7 @@ body:
         - [ ] Create patch note PDF @raos-tw
         - [ ] Check if new model should be included 
         - [ ] [Announce](https://teams.microsoft.com/l/message/19:MnuQdrGhFqaQjTZe3gtV6HEj_qSZRVR-SMyEx5lpezs1@thread.tacv2/1679916139303?tenantId=9ce76d42-5ecb-4d8f-939b-a462ad28cf34&groupId=66703af7-8520-4e05-897e-f4a8f34819e3&parentMessageId=1679916139303&teamName=Energy%20-%20Mesh&channelName=General&createdTime=1679916139303&allowXTenantAccess=false)
-        "
+        
     validations:
       required: true
   
