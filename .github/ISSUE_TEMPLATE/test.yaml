@@ -10,10 +10,10 @@ body:
       label: What happened?
       description: Also tell us, what did you expect to happen?
       placeholder: Tell us what you see!
-      render: markdown
       value: "
         - [ ] Bump version to <Version>
         "
+      render: markdown
     validations:
       required: true
   
