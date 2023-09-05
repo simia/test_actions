@@ -13,3 +13,5 @@ jobs:
         uses: simia/pr-content-validation@v1.1
         with:
           relese-notes-ignore-pattern: '!RS'
+          milestone-ignore-pattern: '!MS'
+          
